@@ -634,6 +634,7 @@ typedef struct amqp_rpc_reply_t_ {
  * \since v0.1
  */
 typedef enum amqp_sasl_method_enum_ {
+  AMQP_SASL_METHOD_UNDEFINED = -1, /**< Invalid SASL method */
   AMQP_SASL_METHOD_PLAIN = 0,      /**< the PLAIN SASL method for authentication to the broker */
   AMQP_SASL_METHOD_EXTERNAL = 1    /**< the EXTERNAL SASL method for authentication to the broker */
 } amqp_sasl_method_enum;
@@ -2388,6 +2389,19 @@ amqp_table_t *
 amqp_get_server_properties(amqp_connection_state_t state);
 
 AMQP_END_DECLS
+
+/**
+ * Verify if method is in the mechanisms list
+ *
+ * \param [in] mechanisms the mechanisms object
+ * \param [in] method the sasl_method type
+ * \return returns true if the method exists in the mechanisms.
+ *
+ * \since v0.6.0
+ */
+AMQP_PUBLIC_FUNCTION
+int
+sasl_mechanism_in_list(amqp_bytes_t mechanisms, amqp_sasl_method_enum method);
 
 
 #endif /* AMQP_H */
