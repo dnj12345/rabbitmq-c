@@ -28,3 +28,7 @@ add_executable(test_status_enum
                test_status_enum.c)
 target_link_libraries(test_status_enum ${RMQ_LIBRARY_TARGET})
 add_test(status_enum test_status_enum)
+
+add_executable(test_sasl_mechanism test_sasl_mechanism.c)
+target_link_libraries(test_sasl_mechanism ${RMQ_LIBRARY_TARGET})
+add_test(sasl_mechanism test_sasl_mechanism)
